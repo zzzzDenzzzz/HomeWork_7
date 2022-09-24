@@ -5,16 +5,17 @@ namespace CardGame
 {
     internal class Player
     {
-        List<Card> cards;
+        public string Name { get; set; }
+        List<Card> currentCards;
 
-        public Player(List<Card> cards)
+        public Player(string name)
         {
-            this.cards = cards;
+            Name = name;
         }
 
         public void ShowCards()
         {
-            foreach (Card card in cards)
+            foreach (Card card in currentCards)
             {
                 card.Show();
                 Console.Write(" ");

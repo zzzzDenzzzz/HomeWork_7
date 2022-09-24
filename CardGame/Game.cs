@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CardGame
 {
@@ -7,9 +8,17 @@ namespace CardGame
         List<Player> players;
         List<Card> cardDeck;
 
-        public Game(List<Player> players)
+        public Game(List<Player> players, List<Card> cards)
         {
-            this.players = players;
+            if (players.Count >= 2)
+            {
+                this.players = players;
+                cardDeck = cards;
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
     }
 }
