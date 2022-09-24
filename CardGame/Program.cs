@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-
+            CardDeck cardDeck = new CardDeck();
+            cardDeck.Show();
+            cardDeck.Shuffle();
+            cardDeck.Show();
         }
     }
 }

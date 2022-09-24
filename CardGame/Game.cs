@@ -6,14 +6,14 @@ namespace CardGame
     internal class Game
     {
         List<Player> players;
-        List<Card> cardDeck;
+        CardDeck cardDeck;
 
-        public Game(List<Player> players, List<Card> cards)
+        public Game(List<Player> players, CardDeck cardDeck)
         {
             if (players.Count >= 2)
             {
                 this.players = players;
-                cardDeck = cards;
+                this.cardDeck = cardDeck;
             }
             else
             {
