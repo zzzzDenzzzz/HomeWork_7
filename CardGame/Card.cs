@@ -4,28 +4,46 @@ namespace CardGame
 {
     internal class Card
     {
-        byte suit;
-        bool color;
-        string[] rank = {"6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+        string suit;
+        string rank;
 
-        public Card(byte suit, bool color)
+        public Card(string suit, string rank)
         {
-            this.suit = suit;
-            this.color = color;
+            this.suit = suit.ToLower();
+            this.rank = rank.ToUpper();
         }
 
         public void Show()
         {
-            if (color)
+            char? symbol = null;
+
+            if (suit == "diamonds")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+                symbol = '\u2666';
+            }
+            else if (suit == "hearts")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                symbol = '\u2665';
+            }
+            else if (suit == "clubs")
+            {
+                Console.ForegroundColor = ConsoleColor.Black;
+                symbol = '\u2663';
+            }
+            else if (suit == "spades")
+            {
+                Console.ForegroundColor = ConsoleColor.Black;
+                symbol = '\u2660';
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Black;
+                throw new Exception();
             }
+
             Console.BackgroundColor = ConsoleColor.White;
-            Console.Write($"[{(char)suit}{rank}]");
+            Console.Write($"[{symbol}{rank}]");
             Console.ResetColor();
         }
     }
