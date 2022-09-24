@@ -15,7 +15,7 @@ namespace CardGame
 
         public void Show()
         {
-            char? symbol = null;
+            char? symbol;
 
             if (suit == "diamonds")
             {
