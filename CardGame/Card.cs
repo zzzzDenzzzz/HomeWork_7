@@ -6,13 +6,12 @@ namespace CardGame
     {
         byte suit;
         bool color;
-        string rank;
+        string[] rank = {"6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 
-        public Card(byte suit, bool color, string rank)
+        public Card(byte suit, bool color)
         {
             this.suit = suit;
             this.color = color;
-            this.rank = rank;
         }
 
         public void Show()
