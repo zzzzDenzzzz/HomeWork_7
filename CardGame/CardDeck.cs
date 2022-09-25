@@ -21,19 +21,6 @@ namespace CardGame
             }
         }
 
-        public void Show()
-        {
-            for (int i = 0; i < cardDeck.Count; i++)
-            {
-                if (i % rank.Length == 0)
-                {
-                    Console.WriteLine();
-                }
-                cardDeck[i].Show();
-            }
-            Console.WriteLine();
-        }
-
         public void Shuffle()
         {
             Random rand = new Random();
@@ -46,6 +33,11 @@ namespace CardGame
                 cardDeck[j] = cardDeck[i];
                 cardDeck[i] = tmp;
             }
+        }
+
+        public List<Card> GetCardDeck()
+        {
+            return cardDeck;
         }
     }
 }

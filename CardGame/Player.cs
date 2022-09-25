@@ -11,6 +11,7 @@ namespace CardGame
         public Player(string name)
         {
             Name = name;
+            currentCards = new List<Card>();
         }
 
         public void ShowCards()
@@ -20,6 +21,19 @@ namespace CardGame
                 card.Show();
                 Console.Write(" ");
             }
+        }
+
+        public void AddCard(Card card)
+        {
+            currentCards.Add(card);
+        }
+
+        public Card PutCard()
+        {
+            Card tmp = currentCards[0];
+            currentCards.RemoveAt(0);
+
+            return tmp;
         }
     }
 }
