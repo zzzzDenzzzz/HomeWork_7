@@ -6,7 +6,7 @@ namespace CardGame
     internal class CardDeck
     {
         string[] suit = { "diamonds", "hearts", "clubs", "spades" };
-        string[] rank = { "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+        int[] rank = { 6, 7, 8, 9, 10, 11, 12, 13, 14 };
         List<Card> cardDeck;
 
         public CardDeck()

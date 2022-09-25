@@ -35,5 +35,10 @@ namespace CardGame
 
             return tmp;
         }
+
+        public int CountCurrentCard()
+        {
+            return currentCards.Count;
+        }
     }
 }

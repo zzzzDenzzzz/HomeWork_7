@@ -8,8 +8,9 @@ namespace CardGame
         List<Player> players;
         CardDeck cardDeck;
         List<Card> table;
+        public int Step { get; set; }
 
-        public Game(CardDeck cardDeck, params Player[] players)
+        public Game(CardDeck cardDeck, int step, params Player[] players)
         {
             if (players.Length >= 2 && cardDeck.GetCardDeck().Count % players.Length == 0)
             {
@@ -17,6 +18,7 @@ namespace CardGame
                 this.players.AddRange(players);
                 this.cardDeck = cardDeck;
                 table = new List<Card>();
+                Step = step;
             }
             else
             {
@@ -62,11 +64,44 @@ namespace CardGame
 
         public void PlayerTakesCards()
         {
-            for (int i = 0; i < players.Count; i++)
+            int player = 0;
+            int maxRank = table[player].GetRank();
+            for (int i = 1; i < table.Count; i++)
             {
-
+                if (maxRank < table[i].GetRank())
+                {
+                    maxRank = table[i].GetRank();
+                    player = i;
+                }
+                else if (maxRank == table[i].GetRank())
+                {
+                    ;
+                }
+            }
+            for (int i = 0; i < table.Count; i++)
+            {
+                players[player].AddCard(table[i]);
             }
             table.Clear();
+        }
+
+        public void Win()
+        {
+            string playerWin = players[0].Name;
+            int countCard = players[0].CountCurrentCard();
+            for (int i = 1; i < players.Count; i++)
+            {
+                if (players[i].CountCurrentCard() > countCard)
+                {
+                    countCard = players[i].CountCurrentCard();
+                    playerWin = players[i].Name;
+                }
+                else if (players[i].CountCurrentCard() == countCard)
+                {
+                    ;
+                }
+            }
+            Console.WriteLine($"{playerWin} WIN!!!");
         }
     }
 }
